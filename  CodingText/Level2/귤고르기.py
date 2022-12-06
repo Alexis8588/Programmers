@@ -19,7 +19,11 @@ solution 함수를 작성해주세요.
 
 def solution(k, tangerine):
     answer = 0
+
+
     return answer
+
+
 
     """
     from collections import deque as dq

@@ -9,7 +9,9 @@
 구매해야 하는 기사는 협약기관에서 정한 공격력을 가지는 무기를 구매해야 합니다.
 
 예를 들어, 15번으로 지정된 기사단원은 15의 약수가 1, 3, 5, 15로 4개 이므로, 공격력이 4인 
-무기를 구매합니다. 만약, 이웃나라와의 협약으로 정해진 공격력의 제한수치가 3이고 제한수치를 초과한 
+무기를 구매합니다. 만약, 이웃나라와의 
+
+협약으로 정해진 공격력의 제한수치가 3이고 제한수치를 초과한 
 기사가 사용할 무기의 공격력이 2라면, 15번으로 지정된 기사단원은 무기점에서 공격력이 2인 무기를 
 구매합니다. 무기를 만들 때, 무기의 공격력 1당 1kg의 철이 필요합니다. 그래서 무기점에서 무기를 
 모두 만들기 위해 필요한 철의 무게를 미리 계산하려 합니다.
@@ -31,10 +33,32 @@ def solution(number, limit, power):
     # 해당 단원의 공격력을 계산해야함
     attacker = 0
     for i in number:
-        if (number // i == 0):
+        count = number / i
+        
+        if (count == 0):
             attacker = attacker + 1
     
     if (attacker > limit):
         attacker = power
 
     return answer
+
+    """
+    
+       def count_nums(a):
+            cnt = 0
+        for i in range(1, int(a**(1/2))+1):
+            if a%i == 0:
+                cnt += 1
+                if ((i**2) != a) :
+                    cnt +=1
+            if cnt > limit:
+                return power
+        return cnt
+    for i in range(1, number+1):
+        k = count_nums(i)
+        if k > limit:
+            k = power
+        answer += k
+    
+    """
